@@ -27,14 +27,15 @@ def main():
 
 	K.set_image_dim_ordering('tf')
 	train_labels = utils.to_categorical(train_labels, num_classes=7)
+	test_labels = utils.to_categorical(test_labels, num_classes=7)
 
 	model = CNN((48, 48, 1), 7)
 	model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 	model.summary()
-	model.fit(train_images, train_labels, epochs=20, batch_size=128)
+	model.fit(train_images, train_labels, epochs=1, batch_size=128)
 
-	#score = model.evaluate(test_images, test_labels, batch_size=128)
-	#print('SCORE:', score)
+	score = model.evaluate(test_images, test_labels, batch_size=128)
+	print('SCORE:', score)
 
 if __name__ == '__main__':
 	main()
