@@ -27,8 +27,6 @@ def CNN(input_shape, num_classes):
 	return model
 
 def main():
-	print('Hello World!')
-
 	CNN((48, 48, 1), 7)
 
 if __name__ == '__main__':
