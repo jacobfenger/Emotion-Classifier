@@ -1,6 +1,8 @@
-from cnn import CNN
+ from cnn import CNN
 import csv 
 import numpy as np
+import keras
+import keras.models
 from keras import backend as K
 from keras import utils 
 
@@ -48,8 +50,14 @@ def main():
 
 	# Evaluate the model with the test set of images
 	# Change this to predict() to predict actual class labels
-	score = model.evaluate(test_images, test_labels, batch_size=128)
-	print('SCORE:', score)
+	# score = model.evaluate(test_images, test_labels, batch_size=128)
+	# print('SCORE:', score)
+
+	# Save the model to disk 
+	model.save('intro_model.h5')
+
+
+
 
 if __name__ == '__main__':
 	main()
